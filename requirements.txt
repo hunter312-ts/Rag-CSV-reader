@@ -22,6 +22,7 @@ faiss-cpu>=1.7.4
 # PDF handling
 pypdf>=3.10.0
 pymupdf>=1.23.1
+protobuf<4.21
 
 # Transformers & embeddings
 sentence-transformers>=2.2.2
