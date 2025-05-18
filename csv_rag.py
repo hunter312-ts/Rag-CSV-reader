@@ -22,6 +22,7 @@ st.sidebar.write(
     
     "- Enter your API KEY \n"
     "- Upload Your Csv File \n"
+    "- Ask question and See the chat history."
 )
 load_dotenv()
 api_key=st.sidebar.text_input("GROQ API KEY",type="password")
@@ -56,9 +57,9 @@ if uploaded_csv:
         split=text_splitter.split_documents(all_doc)
         # Cashe Vector Store
         @st.cache_resource(show_spinner=False)
-        def get_vactor(_all_doc):
+        def get_vactor(_split):
             return Chroma.from_documents(
-                _all_doc,
+                _split,
                 embedding,
                 persist_directory="./csv_chroma_index"
             )
